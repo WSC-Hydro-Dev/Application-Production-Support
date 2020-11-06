@@ -9,9 +9,9 @@ def getStationUniqueId(stn, token, server_pub):
     try:
         r = requests.get(stnIdUrl)
         exists = True
-        print "Station exists: " + str(stn)
+        print ("Station exists: " + str(stn))
     except:
-        print "Station does not exists: " + str(stn)
+        print ("Station does not exists: " + str(stn))
 
     # get the unique Id of the station
     try:
@@ -19,4 +19,4 @@ def getStationUniqueId(stn, token, server_pub):
         UniqueId = r.json()['UniqueId']
         return UniqueId
     except:
-        print "Unable to get Unique Id for station: " + str(stn)
+        print ("Unable to get Unique Id for station: " + str(stn))
