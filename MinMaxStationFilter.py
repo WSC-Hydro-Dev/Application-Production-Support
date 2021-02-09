@@ -48,8 +48,8 @@ def unique_id(id_lst):
     url = "https://wsc.aquaticinformatics.net/AQUARIUS/Publish/v2"
     func = "/GetTimeSeriesDescriptionList"
     para = "?Parameter=Stage&LocationIdentifier="
-    username = "username"
-    password = "password"
+    username = "username" # need to be replaced by working username
+    password = "password" # need to be replaced by working password
     url_lst = []
     unique_lst = []
 
@@ -77,8 +77,8 @@ def min_max(id_lst, year_lst):
     url = "https://wsc.aquaticinformatics.net/AQUARIUS/Publish/v2"
     func = "/GetTimeSeriesData"
     para = "?TimeSeriesUniqueIds="
-    username = "username"
-    password = "password"
+    username = "username"  # need to be replaced by working username
+    password = "password"  # need to be replaced by working password
     url_lst = []
     val_lst = []
     min_max_lst = []
