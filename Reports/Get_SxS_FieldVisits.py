@@ -1,7 +1,7 @@
 from timeseries_client import timeseries_client 
 from datetime import datetime as dt
 
-# This script queries all section by section field visits (their station, date, and province) and stores them in a text file
+# This python script queries all section by section field visits (their station, date, and province) and stores them in a text file
 # It does so by looking for the string "ADCP" in Discharge Activities -> PointVelocityDischargeActivities -> DischargeChannelMeasurement -> Comments
 # of the JSON returned for the field visit using /GetFieldVisitData
 # The script requires the timeseries_client module
