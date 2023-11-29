@@ -1,12 +1,9 @@
 import csv
-from datetime import datetime as dt, timedelta, timezone
-
-from matplotlib import dates
+from datetime import datetime as dt
 from timeseries_client import timeseries_client
 from requests.exceptions import HTTPError
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.cm import get_cmap
 import matplotlib.dates as mdates
 from matplotlib.ticker import MaxNLocator
 
@@ -21,11 +18,9 @@ def getSession():
     s = timeseries_client(AQ_base_url, loginID, password)
     return s
 
-
 def wipeCSV():
     with open(csv_file, 'w', newline='', encoding='utf-8') as csvfile:
         pass
-
 
 def getTSUniqueID(s):
     uniqueID = []
@@ -44,8 +39,9 @@ def getTSUniqueID(s):
 
     return uniqueID
 
+
 def getApprovalsTransactionListData(s, unique_id):
-    unique_ids= getTSUniqueID(s)
+    unique_ids = getTSUniqueID(s)
     if unique_id in unique_ids:
         fieldnames = ['ID', 'ApprovalLevel', 'DateAppliedUtc', 'User', 'LevelDescription', 'Comment', 'StartTime', 'EndTime']
         parameters = {'TimeSeriesUniqueId': unique_id}
@@ -128,7 +124,6 @@ def queryCSV(unique_id, query_date):
         print(f"No data found for the specified date and unique ID.")
 
 
-
 def updateData(unique_id):
     s = getSession()
     getApprovalsTransactionListData(s, unique_id)
@@ -136,6 +131,7 @@ def updateData(unique_id):
 
     print('end at:')
     print(dt.now())
+
 
 if __name__ == "__main__":
     wipeCSV()  
